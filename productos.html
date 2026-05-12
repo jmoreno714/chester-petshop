@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -7,128 +7,155 @@
 <meta name="description" content="Las mejores marcas de alimento balanceado para tu mascota. Sieger, Vitalcan, Royal Canin, Eukanuba y más. Delivery en Yerba Buena.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --navy: #21243d; --navy-light: #2d3260; --yellow: #FFD60A; --orange: #FF6B2C;
-  --cream: #FFF8E7; --text: #1a1a2e; --white: #ffffff; --green-wa: #25D366;
-  --shadow-yellow: 0 8px 32px rgba(255,214,10,0.35); --shadow-navy: 0 8px 40px rgba(33,36,61,0.5);
+  --navy: #21243d; --yellow: #FFD60A; --orange: #FF6B2C;
+  --green-wa: #25D366; --white: #ffffff; --light: #f5f7fb;
+  --text: #1e1e35; --text-muted: #5a5a7a;
   --font-display: 'Baloo 2', cursive; --font-body: 'Nunito', sans-serif;
-  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --radius: 16px; --shadow: 0 4px 24px rgba(33,36,61,0.1); --shadow-lg: 0 8px 40px rgba(33,36,61,0.16);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--navy); color: var(--white); overflow-x: hidden; cursor: none; }
+html { scroll-behavior: smooth; font-size: 18px; }
+body { font-family: var(--font-body); background: var(--white); color: var(--text); overflow-x: hidden; }
 
-.cursor { width: 20px; height: 20px; border-radius: 50%; background: var(--yellow); position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease; mix-blend-mode: difference; will-change: transform; }
-.cursor-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--white); position: fixed; top: 0; left: 0; pointer-events: none; z-index: 10000; transform: translate(-50%,-50%); will-change: transform; }
-body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.035; pointer-events: none; z-index: 9998; }
-
-/* NAVBAR */
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 1.5rem; height: 70px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); background: rgba(33,36,61,0.85); border-bottom: 1px solid rgba(255,214,10,0.15); transition: background 0.3s ease; }
-.navbar.scrolled { background: rgba(33,36,61,0.97); box-shadow: var(--shadow-navy); }
-.nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.nav-logo img { height: 42px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(255,214,10,0.4)); }
-.nav-logo span { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--yellow); letter-spacing: -0.02em; }
-.nav-links { display: flex; gap: 0.25rem; list-style: none; }
-.nav-links a { font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 999px; transition: all 0.25s ease; letter-spacing: 0.02em; text-transform: uppercase; }
-.nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--yellow); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border: none; background: none; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); border-radius: 2px; transition: all 0.35s var(--ease-smooth); transform-origin: center; }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-menu { display: none; position: fixed; inset: 0; top: 70px; background: rgba(33,36,61,0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; transform: translateX(100%); transition: transform 0.4s var(--ease-smooth); }
-.mobile-menu.active { transform: translateX(0); }
-.mobile-menu a { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--white); text-decoration: none; transition: color 0.2s ease; }
-.mobile-menu a:hover { color: var(--yellow); }
-
-/* PAGE HEADER */
-.page-header { background: var(--navy); padding: 120px 1.5rem 60px; position: relative; overflow: hidden; }
-.page-header::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(255,107,44,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(255,214,10,0.08) 0%, transparent 50%); pointer-events: none; }
-.page-header-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-.breadcrumb { font-family: var(--font-body); font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-.breadcrumb a { color: var(--yellow); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-.page-header-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; letter-spacing: -0.03em; color: var(--white); }
-.page-header-title .hl { color: var(--yellow); }
-
-/* PRODUCTOS SECTION */
-#productos { background: var(--navy); padding: 60px 1.5rem 100px; position: relative; overflow: hidden; }
-#productos::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 70%, rgba(255,107,44,0.12) 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, rgba(255,214,10,0.08) 0%, transparent 50%); pointer-events: none; }
-.section-tag { display: inline-block; font-family: var(--font-body); font-weight: 800; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1rem; }
-.section-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-.section-title .hl { color: var(--yellow); }
-.productos-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
-.section-header { margin-bottom: 3rem; }
-.section-header .section-title { color: var(--white); }
-.productos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.product-card { background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; cursor: none; transition: background 0.3s ease, border-color 0.3s ease; opacity: 0; transform: translateY(40px); will-change: transform; position: relative; overflow: hidden; }
-.product-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,214,10,0.08), rgba(255,107,44,0.05)); opacity: 0; transition: opacity 0.3s ease; border-radius: 24px; }
-.product-card:hover::before { opacity: 1; }
-.product-card.visible { opacity: 1; transform: translateY(0) !important; }
-.product-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,214,10,0.35); }
-.product-emoji { font-size: 3rem; display: block; filter: drop-shadow(0 4px 12px rgba(255,214,10,0.3)); transition: transform 0.3s var(--ease-bounce); will-change: transform; }
-.product-card:hover .product-emoji { transform: scale(1.2) translateY(-5px); }
-.product-name { font-family: var(--font-display); font-weight: 800; font-size: 1rem; color: var(--white); line-height: 1.2; }
-.product-link { display: inline-flex; align-items: center; gap: 0.3rem; font-family: var(--font-body); font-weight: 700; font-size: 0.75rem; color: var(--yellow); text-decoration: none; background: rgba(255,214,10,0.1); border: 1px solid rgba(255,214,10,0.3); padding: 0.35rem 0.85rem; border-radius: 999px; transition: all 0.25s ease; opacity: 0; transform: translateY(5px); }
-.product-card:hover .product-link { opacity: 1; transform: translateY(0); }
-.product-link:hover { background: var(--yellow); color: var(--navy); }
-
-/* FAB */
-.fab-wa { position: fixed; bottom: 2rem; right: 2rem; z-index: 500; width: 60px; height: 60px; border-radius: 50%; background: var(--green-wa); display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,0.5); transition: transform 0.3s var(--ease-bounce); will-change: transform; }
-.fab-wa:hover { transform: scale(1.15); }
-.fab-wa svg { width: 30px; height: 30px; fill: white; }
-.fab-pulse { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--green-wa); animation: pulse 2s ease-out infinite; }
-.fab-pulse:nth-child(2) { animation-delay: 0.5s; } .fab-pulse:nth-child(3) { animation-delay: 1s; }
-@keyframes pulse { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.8); opacity: 0; } }
-
-/* FOOTER */
-footer { background: #131628; padding: 3rem 1.5rem 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
-.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
-.footer-logo { display: flex; align-items: center; gap: 0.75rem; }
-.footer-logo img { height: 48px; object-fit: contain; filter: brightness(0.9); }
-.footer-logo span { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; color: var(--yellow); }
-.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-.footer-links a { font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; }
-.footer-links a:hover { color: var(--yellow); }
-.footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); font-weight: 600; }
-
-/* LOADER */
-.page-loader { position: fixed; inset: 0; background: var(--navy); z-index: 9997; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1.5rem; transition: opacity 0.5s ease, visibility 0.5s ease; }
-.page-loader.hidden { opacity: 0; visibility: hidden; }
-.loader-paw { font-size: 3rem; animation: loaderPaw 1s ease-in-out infinite; }
-@keyframes loaderPaw { 0%, 100% { transform: scale(1) rotate(-10deg); } 50% { transform: scale(1.2) rotate(10deg); } }
-.loader-bar { width: 200px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-.loader-fill { height: 100%; background: linear-gradient(90deg, var(--yellow), var(--orange)); border-radius: 2px; animation: loadFill 0.8s var(--ease-smooth) forwards; }
-@keyframes loadFill { from { width: 0%; } to { width: 100%; } }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav-links { display: none; } .hamburger { display: flex; } .mobile-menu { display: flex; }
-  .productos-grid { grid-template-columns: repeat(2, 1fr); }
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  height: 80px; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--navy); border-bottom: 3px solid rgba(255,214,10,0.25);
+  transition: box-shadow 0.3s;
 }
-@media (max-width: 480px) { .section-title { font-size: 2rem; } }
+.navbar.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.nav-logo img { height: 48px; width: auto; object-fit: contain; }
+.nav-logo span { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--yellow); }
+.nav-links { display: flex; gap: 0.25rem; list-style: none; }
+.nav-links a {
+  font-family: var(--font-body); font-weight: 700; font-size: 0.95rem;
+  color: rgba(255,255,255,0.85); text-decoration: none;
+  padding: 0.55rem 1rem; border-radius: 10px; transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--yellow); }
+.hamburger { display: none; flex-direction: column; gap: 6px; background: none; border: none; padding: 8px; cursor: pointer; }
+.hamburger span { display: block; width: 28px; height: 3px; background: var(--yellow); border-radius: 3px; transition: all 0.3s; transform-origin: center; }
+.hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed; inset: 0; top: 80px;
+  background: var(--navy); z-index: 999;
+  flex-direction: column; align-items: center; justify-content: center; gap: 1.75rem;
+  transform: translateX(100%); transition: transform 0.35s ease;
+}
+.mobile-menu.active { transform: translateX(0); }
+.mobile-menu a {
+  font-family: var(--font-display); font-size: 1.9rem; font-weight: 800;
+  color: var(--white); text-decoration: none; padding: 0.5rem 1.75rem;
+  border-radius: var(--radius); transition: all 0.2s;
+}
+.mobile-menu a:hover { color: var(--navy); background: var(--yellow); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+  padding: 0.9rem 2rem; border-radius: 12px; min-height: 56px;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-wa { color: var(--white); background: var(--green-wa); box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+.btn-wa:hover { box-shadow: 0 8px 30px rgba(37,211,102,0.5); }
+
+.fab-wa {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 500;
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--green-wa); display: flex; align-items: center; justify-content: center;
+  text-decoration: none; box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+  transition: transform 0.25s ease;
+}
+.fab-wa:hover { transform: scale(1.1); }
+.fab-wa svg { width: 36px; height: 36px; fill: white; }
+.fab-pulse { position: absolute; inset: -5px; border-radius: 50%; border: 2.5px solid var(--green-wa); pointer-events: none; animation: pulse 2s ease-out infinite; }
+.fab-pulse:nth-child(2) { animation-delay: 0.8s; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(2); opacity: 0; } }
+
+.page-header {
+  background: var(--navy); padding: 120px 2rem 60px;
+}
+.page-header-inner { max-width: 1100px; margin: 0 auto; }
+.breadcrumb { font-size: 0.85rem; font-weight: 700; color: rgba(255,255,255,0.45); margin-bottom: 0.75rem; }
+.breadcrumb a { color: rgba(255,214,10,0.7); text-decoration: none; }
+.breadcrumb a:hover { color: var(--yellow); }
+.breadcrumb span { margin: 0 0.4rem; }
+.page-title {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(2rem, 5vw, 3.2rem); color: var(--white); line-height: 1.1;
+}
+.page-title .hl { color: var(--yellow); }
+.page-subtitle { font-size: 1.05rem; color: rgba(255,255,255,0.65); margin-top: 0.6rem; font-weight: 600; }
+
+.products-section { background: var(--light); padding: 60px 2rem 100px; }
+.products-inner { max-width: 1100px; margin: 0 auto; }
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.product-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 2rem 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.9rem;
+  border: 2px solid #e2e6f0; box-shadow: var(--shadow);
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s, box-shadow 0.25s;
+  text-decoration: none; color: var(--text);
+}
+.product-card.visible { opacity: 1; transform: translateY(0); }
+.product-card:hover { border-color: var(--yellow); box-shadow: 0 8px 32px rgba(33,36,61,0.14); transform: translateY(-4px) !important; }
+.product-emoji { font-size: 3.5rem; line-height: 1; display: block; }
+.product-name { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--navy); line-height: 1.25; }
+.product-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.55; }
+.product-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-display); font-weight: 800; font-size: 0.95rem;
+  color: var(--navy); background: var(--yellow);
+  padding: 0.65rem 1.4rem; border-radius: 10px; min-height: 48px;
+  text-decoration: none; margin-top: auto;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-link:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(255,214,10,0.4); }
+
+footer { background: #131628; padding: 3rem 2rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
+.footer-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.footer-logo img { height: 52px; object-fit: contain; }
+.footer-logo span { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; color: var(--yellow); }
+.footer-nav { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+.footer-nav a { font-weight: 700; font-size: 0.95rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-nav a:hover { color: var(--yellow); }
+.footer-copy { font-size: 0.85rem; color: rgba(255,255,255,0.3); font-weight: 600; }
+
+@media (max-width: 900px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) {
+  html { font-size: 17px; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+@media (max-width: 520px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .navbar { padding: 0 1.25rem; }
+}
 </style>
 </head>
 <body>
 
-<div class="page-loader" id="loader">
-  <div class="loader-paw">🐾</div>
-  <div class="loader-bar"><div class="loader-fill"></div></div>
-</div>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-dot" id="cursorDot"></div>
-
-<!-- TODO: completar — reemplazar 543815112487 con el número real de WhatsApp -->
-<a class="fab-wa" href="https://wa.me/543815112487" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <div class="fab-pulse"></div><div class="fab-pulse"></div><div class="fab-pulse"></div>
+<a class="fab-wa" href="https://wa.me/543815112487" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <div class="fab-pulse"></div><div class="fab-pulse"></div>
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <nav class="navbar" id="navbar">
   <a href="index.html" class="nav-logo">
-    <img src="https://cdn.pedix.app/W5wd6nR2wi2sRJWP8IXd/establishment-logo/logo-1771342104230.png" alt="Chester Pet Shop logo" onerror="this.style.display='none'">
+    <img src="https://cdn.pedix.app/W5wd6nR2wi2sRJWP8IXd/establishment-logo/logo-1771342104230.png" alt="Chester Pet Shop" onerror="this.style.display='none'">
     <span>Chester</span>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -138,7 +165,7 @@ footer { background: #131628; padding: 3rem 1.5rem 2rem; border-top: 1px solid r
     <li><a href="index.html#como-comprar">Cómo comprar</a></li>
     <li><a href="index.html#contacto">Contacto</a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -153,72 +180,101 @@ footer { background: #131628; padding: 3rem 1.5rem 2rem; border-top: 1px solid r
 
 <div class="page-header">
   <div class="page-header-inner">
-    <div class="breadcrumb"><a href="index.html">Inicio</a> › Productos</div>
-    <h1 class="page-header-title">Nuestras <span class="hl">Marcas</span></h1>
+    <div class="breadcrumb"><a href="index.html">Inicio</a><span>›</span> Productos</div>
+    <h1 class="page-title">Nuestros <span class="hl">Productos</span></h1>
+    <p class="page-subtitle">Elegí la categoría y consultanos por WhatsApp</p>
   </div>
 </div>
 
-<section id="productos">
-  <div class="productos-inner">
-    <div class="section-header">
-      <div class="section-tag" style="background:rgba(255,214,10,0.1);border:1px solid rgba(255,214,10,0.3);color:var(--yellow);">Nuestras marcas</div>
-      <h2 class="section-title">Las mejores <span class="hl">marcas</span> para tu mascota</h2>
-    </div>
-    <div class="productos-grid" id="productosGrid">
-      <div class="product-card"><span class="product-emoji">🐶</span><div class="product-name">Sieger / Agility</div><a href="productos/sieger-agility.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">🦴</span><div class="product-name">Línea Vitalcan<br>Perros</div><a href="productos/vitalcan-perros.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">🐱</span><div class="product-name">Línea Vitalcan<br>Gatos</div><a href="productos/vitalcan-gatos.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">⭐</span><div class="product-name">EUKANUBA</div><a href="productos/eukanuba.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">👑</span><div class="product-name">Royal Canin</div><a href="productos/royal-canin.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">🏷️</span><div class="product-name">Estampa</div><a href="productos/estampa.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">🛏️</span><div class="product-name">Camitas para Mascotas</div><a href="productos/camitas.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">💊</span><div class="product-name">Fármacos</div><a href="productos/farmacos.html" class="product-link">Ver categoría →</a></div>
-      <div class="product-card"><span class="product-emoji">🍖</span><div class="product-name">Otros alimentos</div><a href="productos/otros-alimentos.html" class="product-link">Ver categoría →</a></div>
+<div class="products-section">
+  <div class="products-inner">
+    <div class="products-grid">
+
+      <a href="productos/sieger-agility.html" class="product-card">
+        <span class="product-emoji">🐶</span>
+        <div class="product-name">Sieger / Agility</div>
+        <div class="product-desc">Alimento premium para perros adultos y cachorros</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/vitalcan-perros.html" class="product-card">
+        <span class="product-emoji">🦴</span>
+        <div class="product-name">Vitalcan — Perros</div>
+        <div class="product-desc">Línea completa para perros de todas las etapas</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/vitalcan-gatos.html" class="product-card">
+        <span class="product-emoji">🐱</span>
+        <div class="product-name">Vitalcan — Gatos</div>
+        <div class="product-desc">Nutrición balanceada para gatos de todas las edades</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/eukanuba.html" class="product-card">
+        <span class="product-emoji">⭐</span>
+        <div class="product-name">EUKANUBA</div>
+        <div class="product-desc">Nutrición científica de alta calidad para perros</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/royal-canin.html" class="product-card">
+        <span class="product-emoji">👑</span>
+        <div class="product-name">Royal Canin</div>
+        <div class="product-desc">Nutrición adaptada a cada raza y tamaño</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/estampa.html" class="product-card">
+        <span class="product-emoji">🏷️</span>
+        <div class="product-name">Estampa</div>
+        <div class="product-desc">Alimento de calidad para perros y gatos</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/camitas.html" class="product-card">
+        <span class="product-emoji">🛏️</span>
+        <div class="product-name">Camitas para Mascotas</div>
+        <div class="product-desc">Camas y colchonetas cómodas para tu mascota</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/farmacos.html" class="product-card">
+        <span class="product-emoji">💊</span>
+        <div class="product-name">Fármacos</div>
+        <div class="product-desc">Antiparasitarios, vitaminas y suplementos</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
+      <a href="productos/otros-alimentos.html" class="product-card">
+        <span class="product-emoji">🍖</span>
+        <div class="product-name">Otros Alimentos</div>
+        <div class="product-desc">Snacks y alimentos húmedos para perros y gatos</div>
+        <span class="product-link">Ver productos →</span>
+      </a>
+
     </div>
   </div>
-</section>
+</div>
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">
+    <a href="index.html" class="footer-logo">
       <img src="https://cdn.pedix.app/W5wd6nR2wi2sRJWP8IXd/establishment-logo/logo-1771342104230.png" alt="Chester Pet Shop" onerror="this.style.display='none'">
       <span>Chester Pet Shop</span>
-    </div>
-    <nav class="footer-links">
-      <a href="index.html">Inicio</a><a href="index.html#nosotros">Nosotros</a><a href="productos.html">Productos</a><a href="index.html#como-comprar">Cómo comprar</a><a href="index.html#contacto">Contacto</a>
+    </a>
+    <nav class="footer-nav">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#nosotros">Nosotros</a>
+      <a href="productos.html">Productos</a>
+      <a href="index.html#como-comprar">Cómo comprar</a>
+      <a href="index.html#contacto">Contacto</a>
     </nav>
-    <div style="display:flex;gap:1rem;">
-      <a href="https://instagram.com/Chesterpetshop_" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);font-size:1.3rem;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#FFD60A'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">📸</a>
-      <!-- TODO: completar — WhatsApp real -->
-      <a href="https://wa.me/543815112487" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);font-size:1.3rem;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">💬</a>
-    </div>
-    <div class="footer-copy">© 2025 Chester Pet Shop — Todos los derechos reservados · Yerba Buena, Tucumán, Argentina</div>
+    <p class="footer-copy">© 2025 Chester Pet Shop — Yerba Buena, Tucumán, Argentina</p>
   </div>
 </footer>
 
 <script>
-const cursor = document.getElementById('cursor');
-const cursorDot = document.getElementById('cursorDot');
-let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX; mouseY = e.clientY;
-  cursorDot.style.transform = `translate(${mouseX}px,${mouseY}px) translate(-50%,-50%)`;
-});
-function animateCursor() {
-  curX += (mouseX - curX) * 0.12; curY += (mouseY - curY) * 0.12;
-  cursor.style.transform = `translate(${curX}px,${curY}px) translate(-50%,-50%)`;
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => { cursor.style.width = '40px'; cursor.style.height = '40px'; });
-  el.addEventListener('mouseleave', () => { cursor.style.width = '20px'; cursor.style.height = '20px'; });
-});
-
-window.addEventListener('load', () => {
-  setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 800);
-});
-
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
 
@@ -228,42 +284,28 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open'); mobileMenu.classList.toggle('active');
   document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
 });
-document.querySelectorAll('.mob-link').forEach(link => {
-  link.addEventListener('click', () => { hamburger.classList.remove('open'); mobileMenu.classList.remove('active'); document.body.style.overflow = ''; });
-});
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+  hamburger.classList.remove('open'); mobileMenu.classList.remove('active'); document.body.style.overflow = '';
+}));
 
-const productCards = document.querySelectorAll('.product-card');
-const productObserver = new IntersectionObserver((entries) => {
+const cards = document.querySelectorAll('.product-card');
+const obs = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting) {
-    productCards.forEach((card, i) => setTimeout(() => card.classList.add('visible'), i * 80));
-    productObserver.disconnect();
+    cards.forEach((c, i) => setTimeout(() => c.classList.add('visible'), i * 80));
+    obs.disconnect();
   }
-}, { threshold: 0.1 });
-if (productCards.length) productObserver.observe(document.getElementById('productosGrid'));
-
-productCards.forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const dx = (e.clientX - rect.left - rect.width/2) / (rect.width/2);
-    const dy = (e.clientY - rect.top - rect.height/2) / (rect.height/2);
-    card.style.transform = `perspective(600px) rotateX(${dy*-12}deg) rotateY(${dx*12}deg) translateY(-8px) scale(1.03)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform 0.4s ease, background 0.3s ease, border-color 0.3s ease';
-    setTimeout(() => card.style.transition = '', 400);
-  });
-});
+}, { threshold: 0.05 });
+if (cards.length) obs.observe(cards[0]);
 
 document.querySelectorAll('a[href$=".html"]').forEach(link => {
   link.addEventListener('click', e => {
     const href = link.getAttribute('href');
-    if (href && !href.startsWith('http') && !href.startsWith('//')) {
-      e.preventDefault();
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.32s ease';
-      setTimeout(() => window.location.href = href, 320);
-    }
+    if (!href || href.startsWith('http') || href.startsWith('//')) return;
+    const cur = window.location.pathname.split('/').pop() || 'index.html';
+    if (href === cur) { e.preventDefault(); return; }
+    e.preventDefault();
+    document.body.style.opacity = '0'; document.body.style.transition = 'opacity 0.32s ease';
+    setTimeout(() => window.location.href = href, 320);
   });
 });
 window.addEventListener('pageshow', () => { document.body.style.opacity = '1'; });

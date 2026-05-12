@@ -1,193 +1,71 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chester Pet Shop — Otros Alimentos</title>
-<meta name="description" content="Snacks, premios y alimentos húmedos para perros y gatos. Delivery en Yerba Buena, Tucumán. Chester Pet Shop.">
+<meta name="description" content="Snacks y alimentos húmedos para perros y gatos. Delivery en Yerba Buena. Chester Pet Shop.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root { --navy: #21243d; --navy-light: #2d3260; --yellow: #FFD60A; --orange: #FF6B2C; --cream: #FFF8E7; --text: #1a1a2e; --white: #ffffff; --green-wa: #25D366; --shadow-yellow: 0 8px 32px rgba(255,214,10,0.35); --shadow-navy: 0 8px 40px rgba(33,36,61,0.5); --font-display: 'Baloo 2', cursive; --font-body: 'Nunito', sans-serif; --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1); --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { font-family: var(--font-body); background: var(--navy); color: var(--white); overflow-x: hidden; cursor: none; }
-.cursor { width: 20px; height: 20px; border-radius: 50%; background: var(--yellow); position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease; mix-blend-mode: difference; will-change: transform; }
-.cursor-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--white); position: fixed; top: 0; left: 0; pointer-events: none; z-index: 10000; transform: translate(-50%,-50%); will-change: transform; }
-body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"); opacity: 0.035; pointer-events: none; z-index: 9998; }
-.navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 1.5rem; height: 70px; display: flex; align-items: center; justify-content: space-between; backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); background: rgba(33,36,61,0.85); border-bottom: 1px solid rgba(255,214,10,0.15); transition: background 0.3s ease; }
-.navbar.scrolled { background: rgba(33,36,61,0.97); box-shadow: var(--shadow-navy); }
-.nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.nav-logo img { height: 42px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(255,214,10,0.4)); }
-.nav-logo span { font-family: var(--font-display); font-weight: 800; font-size: 1.1rem; color: var(--yellow); letter-spacing: -0.02em; }
-.nav-links { display: flex; gap: 0.25rem; list-style: none; }
-.nav-links a { font-family: var(--font-body); font-weight: 700; font-size: 0.78rem; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.4rem 0.75rem; border-radius: 999px; transition: all 0.25s ease; letter-spacing: 0.02em; text-transform: uppercase; }
-.nav-links a:hover, .nav-links a.active { color: var(--navy); background: var(--yellow); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border: none; background: none; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--yellow); border-radius: 2px; transition: all 0.35s var(--ease-smooth); transform-origin: center; }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-menu { display: none; position: fixed; inset: 0; top: 70px; background: rgba(33,36,61,0.98); backdrop-filter: blur(20px); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; transform: translateX(100%); transition: transform 0.4s var(--ease-smooth); }
-.mobile-menu.active { transform: translateX(0); }
-.mobile-menu a { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--white); text-decoration: none; transition: color 0.2s ease; }
-.mobile-menu a:hover { color: var(--yellow); }
-.cat-header { background: var(--navy); padding: 120px 1.5rem 80px; text-align: center; position: relative; overflow: hidden; }
-.cat-header::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 50%, rgba(255,107,44,0.12) 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, rgba(255,214,10,0.08) 0%, transparent 50%); pointer-events: none; }
-.cat-header-inner { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
-.breadcrumb { font-family: var(--font-body); font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
-.breadcrumb a { color: var(--yellow); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-.cat-emoji-large { font-size: 4.5rem; display: block; margin-bottom: 1rem; animation: catFloat 3s ease-in-out infinite; filter: drop-shadow(0 8px 20px rgba(255,214,10,0.4)); }
-@keyframes catFloat { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
-.cat-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--white); letter-spacing: -0.03em; margin-bottom: 0.75rem; line-height: 1.1; }
-.cat-title .hl { color: var(--yellow); }
-.cat-desc { font-family: var(--font-body); font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 500px; margin: 0 auto 1.5rem; line-height: 1.6; }
-.delivery-badge { display: inline-block; background: rgba(255,214,10,0.12); border: 1px solid rgba(255,214,10,0.35); color: var(--yellow); font-family: var(--font-body); font-weight: 700; font-size: 0.82rem; padding: 0.45rem 1.1rem; border-radius: 999px; }
-.products-section { background: var(--navy); padding: 20px 1.5rem 60px; }
-.products-inner { max-width: 780px; margin: 0 auto; }
-.product-item { display: flex; align-items: center; gap: 1.25rem; background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease; opacity: 0; transform: translateX(-30px); will-change: transform; }
-.product-item.visible { opacity: 1; transform: translateX(0) !important; transition: opacity 0.5s ease, transform 0.5s var(--ease-bounce), background 0.3s ease, border-color 0.3s ease; }
-.product-item:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,214,10,0.35); transform: translateX(6px) !important; }
-.product-item-visual { width: 70px; height: 70px; background: linear-gradient(135deg, var(--yellow), var(--orange)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; box-shadow: 0 4px 16px rgba(255,107,44,0.3); }
-.product-item-info { flex: 1; min-width: 0; }
-.product-item-name { font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--white); margin-bottom: 0.25rem; line-height: 1.2; }
-.product-item-meta { font-family: var(--font-body); font-size: 0.78rem; color: rgba(255,255,255,0.4); font-weight: 600; margin-bottom: 0.45rem; }
-.available-badge { display: inline-block; background: rgba(37,211,102,0.12); color: #4ade80; font-family: var(--font-body); font-weight: 700; font-size: 0.68rem; padding: 0.18rem 0.55rem; border-radius: 999px; letter-spacing: 0.05em; }
-.wa-btn { display: inline-flex; align-items: center; gap: 0.45rem; background: var(--green-wa); color: var(--white); font-family: var(--font-display); font-weight: 700; font-size: 0.82rem; padding: 0.6rem 1.1rem; border-radius: 999px; text-decoration: none; white-space: nowrap; flex-shrink: 0; box-shadow: 0 4px 16px rgba(37,211,102,0.3); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.wa-btn:hover { transform: scale(1.07); box-shadow: 0 6px 20px rgba(37,211,102,0.45); }
-.wa-btn svg { width: 17px; height: 17px; fill: white; flex-shrink: 0; }
-.cta-section { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; padding: 10px 1.5rem 80px; max-width: 780px; margin: 0 auto; }
-.btn-back { font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; color: var(--white); background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.18); padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; transition: all 0.25s ease; }
-.btn-back:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.35); }
-.btn-pedix { font-family: var(--font-display); font-weight: 800; font-size: 0.95rem; color: var(--navy); background: var(--yellow); padding: 0.75rem 1.5rem; border-radius: 999px; text-decoration: none; transition: all 0.25s ease; box-shadow: var(--shadow-yellow); }
-.btn-pedix:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(255,214,10,0.5); }
-.fab-wa { position: fixed; bottom: 2rem; right: 2rem; z-index: 500; width: 60px; height: 60px; border-radius: 50%; background: var(--green-wa); display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 6px 24px rgba(37,211,102,0.5); transition: transform 0.3s var(--ease-bounce); will-change: transform; }
-.fab-wa:hover { transform: scale(1.15); }
-.fab-wa svg { width: 30px; height: 30px; fill: white; }
-.fab-pulse { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--green-wa); animation: pulse 2s ease-out infinite; }
-.fab-pulse:nth-child(2) { animation-delay: 0.5s; } .fab-pulse:nth-child(3) { animation-delay: 1s; }
-@keyframes pulse { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.8); opacity: 0; } }
-footer { background: #131628; padding: 3rem 1.5rem 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
-.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 1.5rem; text-align: center; }
-.footer-logo { display: flex; align-items: center; gap: 0.75rem; }
-.footer-logo img { height: 48px; object-fit: contain; filter: brightness(0.9); }
-.footer-logo span { font-family: var(--font-display); font-weight: 900; font-size: 1.3rem; color: var(--yellow); }
-.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
-.footer-links a { font-family: var(--font-body); font-weight: 700; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.2s ease; }
-.footer-links a:hover { color: var(--yellow); }
-.footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); font-weight: 600; }
-.page-loader { position: fixed; inset: 0; background: var(--navy); z-index: 9997; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1.5rem; transition: opacity 0.5s ease, visibility 0.5s ease; }
-.page-loader.hidden { opacity: 0; visibility: hidden; }
-.loader-paw { font-size: 3rem; animation: loaderPaw 1s ease-in-out infinite; }
-@keyframes loaderPaw { 0%, 100% { transform: scale(1) rotate(-10deg); } 50% { transform: scale(1.2) rotate(10deg); } }
-.loader-bar { width: 200px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
-.loader-fill { height: 100%; background: linear-gradient(90deg, var(--yellow), var(--orange)); border-radius: 2px; animation: loadFill 0.8s var(--ease-smooth) forwards; }
-@keyframes loadFill { from { width: 0%; } to { width: 100%; } }
-@media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } .mobile-menu { display: flex; } .product-item { flex-wrap: wrap; } .product-item-info { flex-basis: calc(100% - 90px); } .wa-btn { flex-basis: 100%; justify-content: center; } }
-@media (max-width: 480px) { .cat-title { font-size: 2rem; } .product-item-visual { width: 56px; height: 56px; font-size: 1.5rem; } }
+:root{--navy:#21243d;--yellow:#FFD60A;--orange:#FF6B2C;--green-wa:#25D366;--white:#ffffff;--light:#f5f7fb;--text:#1e1e35;--text-muted:#5a5a7a;--font-display:'Baloo 2',cursive;--font-body:'Nunito',sans-serif;--radius:16px;--shadow:0 4px 24px rgba(33,36,61,0.1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;font-size:18px;}body{font-family:var(--font-body);background:var(--white);color:var(--text);overflow-x:hidden;}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:80px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:var(--navy);border-bottom:3px solid rgba(255,214,10,0.25);transition:box-shadow 0.3s;}.navbar.scrolled{box-shadow:0 4px 24px rgba(0,0,0,0.3);}
+.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}.nav-logo img{height:48px;width:auto;object-fit:contain;}.nav-logo span{font-family:var(--font-display);font-weight:800;font-size:1.2rem;color:var(--yellow);}
+.nav-links{display:flex;gap:0.25rem;list-style:none;}.nav-links a{font-family:var(--font-body);font-weight:700;font-size:0.95rem;color:rgba(255,255,255,0.85);text-decoration:none;padding:0.55rem 1rem;border-radius:10px;transition:all 0.2s;}.nav-links a:hover,.nav-links a.active{color:var(--navy);background:var(--yellow);}
+.hamburger{display:none;flex-direction:column;gap:6px;background:none;border:none;padding:8px;cursor:pointer;}.hamburger span{display:block;width:28px;height:3px;background:var(--yellow);border-radius:3px;transition:all 0.3s;transform-origin:center;}.hamburger.open span:nth-child(1){transform:translateY(9px) rotate(45deg);}.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}.hamburger.open span:nth-child(3){transform:translateY(-9px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;top:80px;background:var(--navy);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:1.75rem;transform:translateX(100%);transition:transform 0.35s ease;}.mobile-menu.active{transform:translateX(0);}.mobile-menu a{font-family:var(--font-display);font-size:1.9rem;font-weight:800;color:var(--white);text-decoration:none;padding:0.5rem 1.75rem;border-radius:var(--radius);transition:all 0.2s;}.mobile-menu a:hover{color:var(--navy);background:var(--yellow);}
+.fab-wa{position:fixed;bottom:2rem;right:2rem;z-index:500;width:72px;height:72px;border-radius:50%;background:var(--green-wa);display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 28px rgba(37,211,102,0.55);transition:transform 0.25s ease;}.fab-wa:hover{transform:scale(1.1);}.fab-wa svg{width:36px;height:36px;fill:white;}.fab-pulse{position:absolute;inset:-5px;border-radius:50%;border:2.5px solid var(--green-wa);pointer-events:none;animation:pulse 2s ease-out infinite;}.fab-pulse:nth-child(2){animation-delay:0.8s;}@keyframes pulse{0%{transform:scale(1);opacity:0.6;}100%{transform:scale(2);opacity:0;}}
+.cat-header{background:var(--navy);padding:120px 2rem 60px;}.cat-header-inner{max-width:800px;margin:0 auto;}.breadcrumb{font-size:0.85rem;font-weight:700;color:rgba(255,255,255,0.4);margin-bottom:1rem;}.breadcrumb a{color:rgba(255,214,10,0.7);text-decoration:none;}.breadcrumb a:hover{color:var(--yellow);}.breadcrumb span{margin:0 0.4rem;}.cat-emoji{font-size:4rem;display:block;margin-bottom:0.75rem;line-height:1;}.cat-title{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,5vw,3rem);color:var(--white);line-height:1.1;margin-bottom:0.5rem;}.cat-title .hl{color:var(--yellow);}.cat-subtitle{font-size:1.05rem;color:rgba(255,255,255,0.65);font-weight:600;}
+.products-section{background:var(--light);padding:60px 2rem 80px;}.products-inner{max-width:800px;margin:0 auto;}.product-list{display:flex;flex-direction:column;gap:1rem;}
+.product-item{display:flex;align-items:center;gap:1.25rem;background:var(--white);border-radius:var(--radius);padding:1.5rem 1.75rem;border:2px solid #e2e6f0;box-shadow:var(--shadow);opacity:0;transform:translateY(16px);transition:opacity 0.5s ease,transform 0.5s ease,border-color 0.25s;}.product-item.visible{opacity:1;transform:translateY(0);}.product-item:hover{border-color:var(--yellow);}
+.product-item-emoji{font-size:2rem;flex-shrink:0;line-height:1;}.product-item-info{flex:1;min-width:0;}.product-item-name{font-family:var(--font-display);font-weight:800;font-size:1.1rem;color:var(--navy);margin-bottom:0.2rem;}.product-item-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.55;}
+.wa-btn{display:inline-flex;align-items:center;gap:0.4rem;background:var(--green-wa);color:var(--white);font-family:var(--font-display);font-weight:700;font-size:0.9rem;padding:0.65rem 1.25rem;border-radius:10px;min-height:48px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:transform 0.2s,box-shadow 0.2s;}.wa-btn:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(37,211,102,0.4);}
+.back-cta{text-align:center;margin-top:3rem;padding-top:2rem;border-top:2px solid #e2e6f0;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}.back-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:var(--font-display);font-weight:800;font-size:1rem;color:var(--navy);background:var(--white);border:2px solid #d0d5e8;padding:0.75rem 1.75rem;border-radius:12px;text-decoration:none;min-height:52px;transition:border-color 0.2s,box-shadow 0.2s;}.back-btn:hover{border-color:var(--navy);box-shadow:var(--shadow);}
+footer{background:#131628;padding:3rem 2rem 2.5rem;border-top:1px solid rgba(255,255,255,0.06);}.footer-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.5rem;text-align:center;}.footer-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}.footer-logo img{height:52px;object-fit:contain;}.footer-logo span{font-family:var(--font-display);font-weight:900;font-size:1.3rem;color:var(--yellow);}.footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;}.footer-nav a{font-weight:700;font-size:0.95rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;}.footer-nav a:hover{color:var(--yellow);}.footer-copy{font-size:0.85rem;color:rgba(255,255,255,0.3);font-weight:600;}
+@media(max-width:768px){html{font-size:17px;}.nav-links{display:none;}.hamburger{display:flex;}.mobile-menu{display:flex;}.product-item{flex-wrap:wrap;}.wa-btn{width:100%;justify-content:center;}.navbar{padding:0 1.25rem;}}
 </style>
 </head>
 <body>
-<div class="page-loader" id="loader"><div class="loader-paw">🐾</div><div class="loader-bar"><div class="loader-fill"></div></div></div>
-<div class="cursor" id="cursor"></div><div class="cursor-dot" id="cursorDot"></div>
-<!-- TODO: reemplazar 543815112487 con el número real de WhatsApp -->
-<a class="fab-wa" href="https://wa.me/543815112487" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <div class="fab-pulse"></div><div class="fab-pulse"></div><div class="fab-pulse"></div>
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<a class="fab-wa" href="https://wa.me/543815112487" target="_blank" rel="noopener" aria-label="WhatsApp"><div class="fab-pulse"></div><div class="fab-pulse"></div><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 <nav class="navbar" id="navbar">
-  <a href="../index.html" class="nav-logo"><img src="https://cdn.pedix.app/W5wd6nR2wi2sRJWP8IXd/establishment-logo/logo-1771342104230.png" alt="Chester Pet Shop logo" onerror="this.style.display='none'"><span>Chester</span></a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="../index.html">Inicio</a></li><li><a href="../index.html#nosotros">Nosotros</a></li><li><a href="../productos.html" class="active">Productos</a></li><li><a href="../index.html#como-comprar">Cómo comprar</a></li><li><a href="../index.html#contacto">Contacto</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="../index.html" class="nav-logo"><img src="https://cdn.pedix.app/W5wd6nR2wi2sRJWP8IXd/establishment-logo/logo-1771342104230.png" alt="Chester Pet Shop" onerror="this.style.display='none'"><span>Chester</span></a>
+  <ul class="nav-links" id="navLinks"><li><a href="../index.html">Inicio</a></li><li><a href="../index.html#nosotros">Nosotros</a></li><li><a href="../productos.html" class="active">Productos</a></li><li><a href="../index.html#como-comprar">Cómo comprar</a></li><li><a href="../index.html#contacto">Contacto</a></li></ul>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
 </nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="../index.html" class="mob-link">Inicio</a><a href="../index.html#nosotros" class="mob-link">Nosotros</a><a href="../productos.html" class="mob-link">Productos</a><a href="../index.html#como-comprar" class="mob-link">Cómo comprar</a><a href="../index.html#contacto" class="mob-link">Contacto</a>
-</div>
+<div class="mobile-menu" id="mobileMenu"><a href="../index.html" class="mob-link">Inicio</a><a href="../index.html#nosotros" class="mob-link">Nosotros</a><a href="../productos.html" class="mob-link">Productos</a><a href="../index.html#como-comprar" class="mob-link">Cómo comprar</a><a href="../index.html#contacto" class="mob-link">Contacto</a></div>
 
 <div class="cat-header">
   <div class="cat-header-inner">
-    <div class="breadcrumb"><a href="../index.html">Inicio</a> › <a href="../productos.html">Productos</a> › Otros alimentos</div>
-    <span class="cat-emoji-large">🍖</span>
-    <h1 class="cat-title">Otros <span class="hl">Alimentos</span></h1>
-    <p class="cat-desc">Snacks, premios y alimentos húmedos para complementar la dieta de tu mascota. ¡Porque también se merecen un mimo!</p>
-    <div class="delivery-badge">🚚 Delivery en Yerba Buena, Tucumán</div>
+    <div class="breadcrumb"><a href="../index.html">Inicio</a><span>›</span><a href="../productos.html">Productos</a><span>›</span>Otros Alimentos</div>
+    <div class="cat-emoji">🍖</div>
+    <h1 class="cat-title"><span class="hl">Otros Alimentos</span></h1>
+    <p class="cat-subtitle">Snacks, premios y alimentos húmedos para perros y gatos</p>
   </div>
 </div>
 
-<section class="products-section">
-  <div class="products-inner" id="productsList">
-    <div class="product-item">
-      <div class="product-item-visual">🍖</div>
-      <div class="product-item-info">
-        <div class="product-item-name">Snacks para Perros</div>
-        <div class="product-item-meta">Premios y recompensas · Distintos sabores y formatos disponibles</div>
-        <span class="available-badge">✓ Disponible</span>
-      </div>
-      <!-- TODO: reemplazar 543815112487 con el número real de WhatsApp -->
-      <a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Snacks%20para%20Perros" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Consultar</a>
+<div class="products-section">
+  <div class="products-inner">
+    <div class="product-list">
+      <div class="product-item"><div class="product-item-emoji">🐶</div><div class="product-item-info"><div class="product-item-name">Snacks para Perros</div><div class="product-item-desc">Premios y bocaditos para adiestramiento y mimos diarios</div></div><a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Snacks%20para%20Perros" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar</a></div>
+      <div class="product-item"><div class="product-item-emoji">🐱</div><div class="product-item-info"><div class="product-item-name">Snacks para Gatos</div><div class="product-item-desc">Golosinas irresistibles para tu felino más exigente</div></div><a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Snacks%20para%20Gatos" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar</a></div>
+      <div class="product-item"><div class="product-item-emoji">🥫</div><div class="product-item-info"><div class="product-item-name">Alimento Húmedo Perros</div><div class="product-item-desc">Latas y sobres para complementar la dieta diaria de tu perro</div></div><a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Alimento%20H%C3%BAmedo%20Perros" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar</a></div>
+      <div class="product-item"><div class="product-item-emoji">🍣</div><div class="product-item-info"><div class="product-item-name">Alimento Húmedo Gatos</div><div class="product-item-desc">Presentaciones húmedas irresistibles para gatos exigentes</div></div><a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Alimento%20H%C3%BAmedo%20Gatos" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Consultar</a></div>
     </div>
-    <div class="product-item">
-      <div class="product-item-visual">🍖</div>
-      <div class="product-item-info">
-        <div class="product-item-name">Snacks para Gatos</div>
-        <div class="product-item-meta">Premios irresistibles · Sabores variados · Formato crujiente</div>
-        <span class="available-badge">✓ Disponible</span>
-      </div>
-      <!-- TODO: reemplazar 543815112487 con el número real de WhatsApp -->
-      <a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Snacks%20para%20Gatos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Consultar</a>
-    </div>
-    <div class="product-item">
-      <div class="product-item-visual">🍖</div>
-      <div class="product-item-info">
-        <div class="product-item-name">Alimento Húmedo Perros</div>
-        <div class="product-item-meta">Latas y sobres · Hidratación extra · Complemento al balanceado</div>
-        <span class="available-badge">✓ Disponible</span>
-      </div>
-      <!-- TODO: reemplazar 543815112487 con el número real de WhatsApp -->
-      <a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Alimento%20H%C3%BAmedo%20Perros" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Consultar</a>
-    </div>
-    <div class="product-item">
-      <div class="product-item-visual">🍖</div>
-      <div class="product-item-info">
-        <div class="product-item-name">Alimento Húmedo Gatos</div>
-        <div class="product-item-meta">Patés y trozos en salsa · Ideal para gatos exigentes o senior</div>
-        <span class="available-badge">✓ Disponible</span>
-      </div>
-      <!-- TODO: reemplazar 543815112487 con el número real de WhatsApp -->
-      <a class="wa-btn" href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20por%20Alimento%20H%C3%BAmedo%20Gatos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Consultar</a>
+    <div class="back-cta">
+      <a href="../productos.html" class="back-btn">← Volver a Productos</a>
+      <a href="https://wa.me/543815112487?text=Hola!%20Quiero%20consultar%20sobre%20otros%20alimentos" target="_blank" rel="noopener" class="back-btn" style="background:var(--green-wa);color:var(--white);border-color:var(--green-wa);">Consultar por WhatsApp</a>
     </div>
   </div>
-</section>
-
-<div class="cta-section">
-  <a href="../productos.html" class="btn-back">← Volver a productos</a>
-  <a href="https://pedix.app/chesterpetshop" target="_blank" rel="noopener" class="btn-pedix">Ver toda la tienda en Pedix ↗</a>
 </div>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo"><img src="https://cdn.pedix.app/W5wd6nR2wi2sRJWP8IXd/establishment-logo/logo-1771342104230.png" alt="Chester Pet Shop" onerror="this.style.display='none'"><span>Chester Pet Shop</span></div>
-    <nav class="footer-links"><a href="../index.html">Inicio</a><a href="../index.html#nosotros">Nosotros</a><a href="../productos.html">Productos</a><a href="../index.html#como-comprar">Cómo comprar</a><a href="../index.html#contacto">Contacto</a></nav>
-    <div style="display:flex;gap:1rem;">
-      <a href="https://instagram.com/Chesterpetshop_" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);font-size:1.3rem;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#FFD60A'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">📸</a>
-      <!-- TODO: reemplazar 543815112487 con el número real de WhatsApp -->
-      <a href="https://wa.me/543815112487" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.4);font-size:1.3rem;text-decoration:none;transition:color 0.2s" onmouseover="this.style.color='#25D366'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">💬</a>
-    </div>
-    <div class="footer-copy">© 2025 Chester Pet Shop — Todos los derechos reservados · Yerba Buena, Tucumán, Argentina</div>
-  </div>
-</footer>
-
+<footer><div class="footer-inner"><a href="../index.html" class="footer-logo"><img src="https://cdn.pedix.app/W5wd6nR2wi2sRJWP8IXd/establishment-logo/logo-1771342104230.png" alt="Chester Pet Shop" onerror="this.style.display='none'"><span>Chester Pet Shop</span></a><nav class="footer-nav"><a href="../index.html">Inicio</a><a href="../productos.html">Productos</a><a href="../index.html#contacto">Contacto</a></nav><p class="footer-copy">© 2025 Chester Pet Shop — Yerba Buena, Tucumán, Argentina</p></div></footer>
 <script>
-const cursor=document.getElementById('cursor'),cursorDot=document.getElementById('cursorDot');let mouseX=0,mouseY=0,curX=0,curY=0;document.addEventListener('mousemove',e=>{mouseX=e.clientX;mouseY=e.clientY;cursorDot.style.transform=`translate(${mouseX}px,${mouseY}px) translate(-50%,-50%)`;});function animateCursor(){curX+=(mouseX-curX)*0.12;curY+=(mouseY-curY)*0.12;cursor.style.transform=`translate(${curX}px,${curY}px) translate(-50%,-50%)`;requestAnimationFrame(animateCursor);}animateCursor();document.querySelectorAll('a, button').forEach(el=>{el.addEventListener('mouseenter',()=>{cursor.style.width='40px';cursor.style.height='40px';});el.addEventListener('mouseleave',()=>{cursor.style.width='20px';cursor.style.height='20px';});});
-window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('loader').classList.add('hidden'),800);});
 const navbar=document.getElementById('navbar');window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
-const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('active');document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';});document.querySelectorAll('.mob-link').forEach(link=>{link.addEventListener('click',()=>{hamburger.classList.remove('open');mobileMenu.classList.remove('active');document.body.style.overflow='';});});
-const items=document.querySelectorAll('.product-item');const itemObserver=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){const idx=Array.from(items).indexOf(entry.target);setTimeout(()=>entry.target.classList.add('visible'),idx*100);itemObserver.unobserve(entry.target);}});},{threshold:0.15});items.forEach(item=>itemObserver.observe(item));
-document.querySelectorAll('a[href$=".html"]').forEach(link=>{link.addEventListener('click',e=>{const href=link.getAttribute('href');if(!href||href.startsWith('http')||href.startsWith('//'))return;const cur=window.location.pathname.split('/').pop()||'index.html';if(href===cur){e.preventDefault();return;}e.preventDefault();document.body.style.opacity='0';document.body.style.transition='opacity 0.32s ease';setTimeout(()=>window.location.href=href,320);});});window.addEventListener('pageshow',()=>{document.body.style.opacity='1';});
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('active');document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';});document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>{hamburger.classList.remove('open');mobileMenu.classList.remove('active');document.body.style.overflow='';}));
+const items=document.querySelectorAll('.product-item');const obs=new IntersectionObserver((entries)=>{if(entries[0].isIntersecting){items.forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*100));obs.disconnect();}},{threshold:0.1});if(items.length)obs.observe(items[0]);
+document.querySelectorAll('a[href$=".html"]').forEach(link=>{link.addEventListener('click',e=>{const href=link.getAttribute('href');if(!href||href.startsWith('http')||href.startsWith('//'))return;const cur=window.location.pathname.split('/').pop()||'index.html';if(href===cur){e.preventDefault();return;}e.preventDefault();document.body.style.opacity='0';document.body.style.transition='opacity 0.32s ease';setTimeout(()=>window.location.href=href,320);});});
+window.addEventListener('pageshow',()=>{document.body.style.opacity='1';});
 </script>
 </body>
 </html>
