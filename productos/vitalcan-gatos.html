@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -282,6 +282,7 @@ document.querySelectorAll('a[href$=".html"]').forEach(link => {
     setTimeout(() => window.location.href = href, 320);
   });
 });
+window.addEventListener('pageshow', () => { document.body.style.opacity = '1'; });
 </script>
 </body>
 </html>

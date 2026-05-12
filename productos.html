@@ -266,6 +266,7 @@ document.querySelectorAll('a[href$=".html"]').forEach(link => {
     }
   });
 });
+window.addEventListener('pageshow', () => { document.body.style.opacity = '1'; });
 </script>
 </body>
 </html>

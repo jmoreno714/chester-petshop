@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -187,7 +187,7 @@ window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('load
 const navbar=document.getElementById('navbar');window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
 const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('active');document.body.style.overflow=mobileMenu.classList.contains('active')?'hidden':'';});document.querySelectorAll('.mob-link').forEach(link=>{link.addEventListener('click',()=>{hamburger.classList.remove('open');mobileMenu.classList.remove('active');document.body.style.overflow='';});});
 const items=document.querySelectorAll('.product-item');const itemObserver=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){const idx=Array.from(items).indexOf(entry.target);setTimeout(()=>entry.target.classList.add('visible'),idx*100);itemObserver.unobserve(entry.target);}});},{threshold:0.15});items.forEach(item=>itemObserver.observe(item));
-document.querySelectorAll('a[href$=".html"]').forEach(link=>{link.addEventListener('click',e=>{const href=link.getAttribute('href');if(!href||href.startsWith('http')||href.startsWith('//'))return;const cur=window.location.pathname.split('/').pop()||'index.html';if(href===cur){e.preventDefault();return;}e.preventDefault();document.body.style.opacity='0';document.body.style.transition='opacity 0.32s ease';setTimeout(()=>window.location.href=href,320);});});
+document.querySelectorAll('a[href$=".html"]').forEach(link=>{link.addEventListener('click',e=>{const href=link.getAttribute('href');if(!href||href.startsWith('http')||href.startsWith('//'))return;const cur=window.location.pathname.split('/').pop()||'index.html';if(href===cur){e.preventDefault();return;}e.preventDefault();document.body.style.opacity='0';document.body.style.transition='opacity 0.32s ease';setTimeout(()=>window.location.href=href,320);});});window.addEventListener('pageshow',()=>{document.body.style.opacity='1';});
 </script>
 </body>
 </html>
